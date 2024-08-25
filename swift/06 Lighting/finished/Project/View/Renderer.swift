@@ -24,7 +24,8 @@ class Renderer: NSObject, MTKViewDelegate {
     let groundMesh: ObjMesh
     let artyMaterial: Material
     let woodMaterial: Material
-    
+    var projectionMatrix: matrix_float4x4 = matrix_identity_float4x4
+
     init(_ parent: ContentView, scene: GameScene) {
         
         self.parent = parent
@@ -66,7 +67,13 @@ class Renderer: NSObject, MTKViewDelegate {
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
+        let aspect = Float(size.width / size.height)
+        projectionMatrix = Matrix44.create_perspective_projection(
+            fovy: 65,
+            aspect: aspect,
+            near: 0.1,
+            far: 20
+        )
     }
     
     func draw(in view: MTKView) {
@@ -91,9 +98,7 @@ class Renderer: NSObject, MTKViewDelegate {
         
         var cameraData: CameraParameters = CameraParameters()
         cameraData.view = scene.player.view!
-        cameraData.projection = Matrix44.create_perspective_projection(
-            fovy: 45, aspect: 800/600, near: 0.1, far: 20
-        )
+        cameraData.projection = projectionMatrix
         renderEncoder?.setVertexBytes(&cameraData, length: MemoryLayout<CameraParameters>.stride, index: 2)
         
         var sun: DirectionalLight = DirectionalLight()

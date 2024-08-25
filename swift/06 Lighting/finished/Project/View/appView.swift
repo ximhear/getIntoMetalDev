@@ -15,14 +15,17 @@ struct appView: View {
     @EnvironmentObject var gameScene: GameScene
     
     var body: some View {
-        ContentView()
-            .frame(width: 800, height: 600)
-            .gesture(
-                DragGesture()
-                    .onChanged { gesture in
-                        gameScene.spinPlayer(offset: gesture.translation)
-                    }
-            )
+        GeometryReader(content: { geometry in
+            ContentView()
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            gameScene.spinPlayer(offset: gesture.translation)
+                        }
+                )
+        })
+        .ignoresSafeArea()
     }
 }
 
