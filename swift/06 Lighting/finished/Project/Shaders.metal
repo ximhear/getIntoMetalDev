@@ -69,6 +69,7 @@ fragment float4 fragmentShader(
     //ambient
     float3 color = 0.2 * baseColor;
     
+    // SUN
     //diffuse
     float lightAmount = max(0.0, dot(input.normal, -sun.forwards));
     color += lightAmount * baseColor * sun.color;
@@ -77,6 +78,7 @@ fragment float4 fragmentShader(
     lightAmount = pow(max(0.0, dot(input.normal, halfVec)), 64);
     color += lightAmount * baseColor * sun.color;
     
+    // SPOT LIGHT
     //directions
     float3 fragLight = normalize(spotlight.position - input.fragmentPosition);
     halfVec = normalize(fragLight + fragCam);
@@ -89,6 +91,7 @@ fragment float4 fragmentShader(
     lightAmount = pow(max(0.0, dot(input.normal, halfVec)), 64) * pow(max(0.0, dot(fragLight, spotlight.forwards)),16);
     color += lightAmount * baseColor * spotlight.color;
     
+    // POINT LIGHT
     for (uint i = 0; i < fragUBO.lightCount; ++i) {
         //directions
         float3 fragLight = normalize(pointLights[i].position - input.fragmentPosition);

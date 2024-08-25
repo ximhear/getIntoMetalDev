@@ -62,31 +62,36 @@ class Light {
             
         if type == DIRECTIONAL {
                 
+            let yaw = eulers![2] * .pi / 180.0
+            let pitch = eulers![1] * .pi / 180.0
             forwards = [
-                cos(eulers![2] * .pi / 180.0) * sin(eulers![1] * .pi / 180.0),
-                sin(eulers![2] * .pi / 180.0) * sin(eulers![1] * .pi / 180.0),
-                cos(eulers![1] * .pi / 180.0)
+                cos(pitch) * sin(yaw),
+                sin(pitch),
+                cos(pitch) * cos(yaw)
             ]
                 
         } else if type == SPOTLIGHT {
             
-            eulers![1] += 1
-            if (eulers![1] > 360) {
-                eulers![1] -= 360
+            let yaw = eulers![2] * .pi / 180.0
+            let pitch = eulers![1] * .pi / 180.0
+            
+            eulers![2] += 1
+            if (eulers![2] > 360) {
+                eulers![2] -= 360
             }
             
             forwards = [
-                cos(eulers![2] * .pi / 180.0) * sin(eulers![1] * .pi / 180.0),
-                sin(eulers![2] * .pi / 180.0) * sin(eulers![1] * .pi / 180.0),
-                cos(eulers![1] * .pi / 180.0)
+                cos(pitch) * sin(yaw),
+                sin(pitch),
+                cos(pitch) * cos(yaw)
             ]
             
         } else if type == POINTLIGHT {
-            position![0] = rotationCenter![0] + pathRadius! * cos(t!) * sin(pathPhi! * .pi / 180.0)
-            position![1] = rotationCenter![1] + pathRadius! * sin(t!) * sin(pathPhi! * .pi / 180.0)
-            position![2] = rotationCenter![2] + pathRadius! * cos(pathPhi! * .pi / 180.0)
+            position![0] = rotationCenter![0] + pathRadius! * cos(pathPhi! * .pi / 180.0) * sin(t!)
+            position![1] = rotationCenter![2] + pathRadius! * sin(pathPhi! * .pi / 180.0)
+            position![2] = rotationCenter![1] + pathRadius! * cos(pathPhi! * .pi / 180.0) * cos(t!)
             
-            t! += angularVelocity! * 0.1;
+            t! += angularVelocity! * 0.05;
             if t! > (2.0 * .pi) {
                 t! -= 2.0 * .pi
             }
