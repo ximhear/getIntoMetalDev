@@ -52,8 +52,8 @@ class GameScene : ObservableObject {
         let dTheta: Float = Float(offset.width)
         let dPhi: Float = Float(offset.height)
         
-        player.eulers.z -= 0.001 * dTheta
-        player.eulers.y += 0.001 * dPhi
+        player.eulers.z -= 0.01 * dTheta
+        player.eulers.y += 0.01 * dPhi
         
         if player.eulers.z < 0 {
             player.eulers.z -= 360

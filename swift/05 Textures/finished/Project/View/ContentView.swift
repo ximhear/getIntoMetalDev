@@ -36,6 +36,7 @@ struct ContentView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MTKView, context: UIViewRepresentableContext<ContentView>) {
+        GZLogFunc()
     }
 }
 

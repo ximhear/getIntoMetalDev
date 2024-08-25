@@ -24,6 +24,7 @@
 		764AB77227D0ED9500812B70 /* objMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB77127D0ED9500812B70 /* objMesh.swift */; };
 		7693A3D428633C91001FE7F7 /* material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7693A3D328633C91001FE7F7 /* material.swift */; };
 		7693A3D628634A18001FE7F7 /* arty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7693A3D528634A18001FE7F7 /* arty.jpg */; };
+		EC47C7182C787E9100A1B839 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C7172C787E9100A1B839 /* GZLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		764AB77127D0ED9500812B70 /* objMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objMesh.swift; sourceTree = "<group>"; };
 		7693A3D328633C91001FE7F7 /* material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = material.swift; sourceTree = "<group>"; };
 		7693A3D528634A18001FE7F7 /* arty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = arty.jpg; path = Project/arty.jpg; sourceTree = SOURCE_ROOT; };
+		EC47C7172C787E9100A1B839 /* GZLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				764AB75A27D0EC0200812B70 /* Model */,
 				764AB76127D0EC0D00812B70 /* View */,
 				764AB75527D0EBB300812B70 /* LinearAlgebro.swift */,
+				EC47C7172C787E9100A1B839 /* GZLog.swift */,
 				764AB75927D0EBD800812B70 /* definitions.h */,
 				764AB75727D0EBC400812B70 /* Shaders.metal */,
 				764AB74B27D0E93000812B70 /* Assets.xcassets */,
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC47C7182C787E9100A1B839 /* GZLog.swift in Sources */,
 				7693A3D428633C91001FE7F7 /* material.swift in Sources */,
 				764AB76027D0EC0200812B70 /* camera.swift in Sources */,
 				764AB76B27D0EC6500812B70 /* projectApp.swift in Sources */,
@@ -347,7 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -360,7 +364,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.MVCfinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.MVCfinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
@@ -377,7 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -390,7 +394,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.MVCfinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.MVCfinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;

@@ -22,7 +22,8 @@ class Renderer: NSObject, MTKViewDelegate {
     var scene: GameScene
     let mesh: ObjMesh
     let material: Material
-    
+    var projectionMatrix: matrix_float4x4 = matrix_identity_float4x4
+
     init(_ parent: ContentView, scene: GameScene) {
         
         self.parent = parent
@@ -62,7 +63,13 @@ class Renderer: NSObject, MTKViewDelegate {
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
+        let aspect = Float(size.width / size.height)
+        projectionMatrix = Matrix44.create_perspective_projection(
+            fovy: 65,
+            aspect: aspect,
+            near: 0.1,
+            far: 10
+        )
     }
     
     func draw(in view: MTKView) {
@@ -91,9 +98,11 @@ class Renderer: NSObject, MTKViewDelegate {
             target: scene.player.position + scene.player.forwards,
             up: scene.player.up
         )
-        cameraData.projection = Matrix44.create_perspective_projection(
-            fovy: 45, aspect: 800/600, near: 0.1, far: 10
-        )
+        GZLogFunc(cameraData.view.columns.0)
+        GZLogFunc(cameraData.view.columns.1)
+        GZLogFunc(cameraData.view.columns.2)
+        GZLogFunc(cameraData.view.columns.3)
+        cameraData.projection = projectionMatrix
         renderEncoder?.setVertexBytes(&cameraData, length: MemoryLayout<CameraParameters>.stride, index: 2)
         
         renderEncoder?.setVertexBuffer(mesh.metalMesh.vertexBuffers[0].buffer, offset: 0, index: 0)

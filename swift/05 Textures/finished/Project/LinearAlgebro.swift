@@ -52,8 +52,19 @@ class Matrix44{
     
     static func create_perspective_projection(fovy: Float, aspect: Float, near: Float, far: Float) -> float4x4 {
         
-        let A: Float = aspect * 1 / tan(fovy * .pi / 360)
-        let B: Float = 1 / tan(fovy * .pi / 360)
+        let aspectx: Float
+        let aspecty: Float
+        if aspect > 1 {
+            aspectx = aspect
+            aspecty = 1
+        }
+        else {
+            aspectx = 1
+            aspecty = 1 / aspect
+        }
+        
+        let A: Float = 1 / tan(fovy * .pi / 360) / aspectx
+        let B: Float = 1 / tan(fovy * .pi / 360) / aspecty
         let C: Float = far / (far - near)
         let D: Float = 1
         let E: Float = -near * far / (far - near)

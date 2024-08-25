@@ -29,6 +29,14 @@ class GameScene : ObservableObject {
             SimpleComponent(
                 position: [3.0, 0.0, 0.0],
                 eulers: [0.0, 0.0, 0.0]
+            ),
+            SimpleComponent(
+                position: [-2.0, -0.2, -0.5],
+                eulers: [0.0, 0.0, 0.0]
+            ),
+            SimpleComponent(
+                position: [-1.0, 1.0, 0.0],
+                eulers: [0.0, 0.0, 0.0]
             )
         ]
     }
