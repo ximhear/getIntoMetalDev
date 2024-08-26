@@ -81,22 +81,22 @@ class GameScene : ObservableObject {
     
     func spinPlayer(offset: CGSize) {
         
-        let dTheta: Float = Float(offset.width)
-        let dPhi: Float = Float(offset.height)
+        let dTheta: Float = Float(offset.height)
+        let dPhi: Float = Float(offset.width)
         
-        player.eulers!.z -= 0.001 * dTheta
-        player.eulers!.y += 0.001 * dPhi
+        player.eulers!.y -= 0.001 * dTheta
+        player.eulers!.z += 0.001 * dPhi
         
-        if player.eulers!.z < 0 {
-            player.eulers!.z -= 360
-        } else if player.eulers!.z > 360 {
-            player.eulers!.z -= 360
+        if player.eulers!.y < 0 {
+            player.eulers!.y -= 360
+        } else if player.eulers!.y > 360 {
+            player.eulers!.y -= 360
         }
         
-        if player.eulers!.y < 1 {
-            player.eulers!.y = 1
-        } else if player.eulers!.y > 179 {
-            player.eulers!.y = 179
+        if player.eulers!.z < 1 {
+            player.eulers!.z = 1
+        } else if player.eulers!.z > 179 {
+            player.eulers!.z = 179
         }
         
     }

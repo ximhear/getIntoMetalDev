@@ -88,8 +88,8 @@ class Light {
             
         } else if type == POINTLIGHT {
             position![0] = rotationCenter![0] + pathRadius! * cos(pathPhi! * .pi / 180.0) * sin(t!)
-            position![1] = rotationCenter![2] + pathRadius! * sin(pathPhi! * .pi / 180.0)
-            position![2] = rotationCenter![1] + pathRadius! * cos(pathPhi! * .pi / 180.0) * cos(t!)
+            position![1] = rotationCenter![1] + pathRadius! * sin(pathPhi! * .pi / 180.0)
+            position![2] = rotationCenter![2] + pathRadius! * cos(pathPhi! * .pi / 180.0) * cos(t!)
             
             t! += angularVelocity! * 0.05;
             if t! > (2.0 * .pi) {
