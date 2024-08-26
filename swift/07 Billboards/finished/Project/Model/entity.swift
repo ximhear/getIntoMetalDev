@@ -65,7 +65,7 @@ class Entity {
             
             forwards = simd.normalize([0,0,0] - position!)
             
-            let globalUp: vector_float3 = [0.0, 0.0, 1.0]
+            let globalUp: vector_float3 = [0.0, 1.0, 0.0]
             
             right = simd.normalize(simd.cross(globalUp, forwards!))
             

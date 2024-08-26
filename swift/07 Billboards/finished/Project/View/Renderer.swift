@@ -107,14 +107,14 @@ class Renderer: NSObject, MTKViewDelegate {
         sendLightData(renderEncoder: renderEncoder)
         
         armForDrawing(renderEncoder: renderEncoder, mesh: cubeMesh, material: artyMaterial)
-        for cube in scene.cubes {
-            draw(renderEncoder: renderEncoder, mesh: cubeMesh, modelTransform: &(cube.model!))
-        }
+//        for cube in scene.cubes {
+//            draw(renderEncoder: renderEncoder, mesh: cubeMesh, modelTransform: &(cube.model!))
+//        }
         
         armForDrawing(renderEncoder: renderEncoder, mesh: groundMesh, material: woodMaterial)
-        for ground in scene.groundTiles {
-            draw(renderEncoder: renderEncoder, mesh: groundMesh, modelTransform: &(ground.model!))
-        }
+//        for ground in scene.groundTiles {
+//            draw(renderEncoder: renderEncoder, mesh: groundMesh, modelTransform: &(ground.model!))
+//        }
         
         armForDrawing(renderEncoder: renderEncoder, mesh: mouseMesh, material: mouseMaterial)
         draw(renderEncoder: renderEncoder, mesh: mouseMesh, modelTransform: &(scene.mouse.model))

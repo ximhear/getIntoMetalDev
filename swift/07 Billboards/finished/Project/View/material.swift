@@ -18,7 +18,8 @@ class Material {
         //Configure texture properties.
         let options: [MTKTextureLoader.Option: Any] = [
             .SRGB: false,
-            .generateMipmaps: true
+            .generateMipmaps: true,
+            .origin: MTKTextureLoader.Origin.topLeft,
         ]
 
         

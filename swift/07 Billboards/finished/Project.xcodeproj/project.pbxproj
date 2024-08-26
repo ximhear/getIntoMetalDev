@@ -28,6 +28,7 @@
 		76F16EF8287122A800041664 /* ground.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 76F16EF7287122A800041664 /* ground.mtl */; };
 		76F16EFA287122B400041664 /* ground.obj in Resources */ = {isa = PBXBuildFile; fileRef = 76F16EF9287122B400041664 /* ground.obj */; };
 		76F16F0028714F3300041664 /* light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F16EFF28714F3300041664 /* light.swift */; };
+		ECCA86CA2C7CD50500097383 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCA86C92C7CD50500097383 /* GZLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		76F16EF7287122A800041664 /* ground.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.mtl; sourceTree = "<group>"; };
 		76F16EF9287122B400041664 /* ground.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.obj; sourceTree = "<group>"; };
 		76F16EFF28714F3300041664 /* light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = light.swift; sourceTree = "<group>"; };
+		ECCA86C92C7CD50500097383 /* GZLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		764AB74627D0E92F00812B70 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				ECCA86C92C7CD50500097383 /* GZLog.swift */,
 				76177DA0286FCE4F00470632 /* textures */,
 				764AB76C27D0ED7100812B70 /* models */,
 				764AB75A27D0EC0200812B70 /* Model */,
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCA86CA2C7CD50500097383 /* GZLog.swift in Sources */,
 				7693A3D428633C91001FE7F7 /* material.swift in Sources */,
 				76115EA4289257EA00633C17 /* billboard.swift in Sources */,
 				764AB76B27D0EC6500812B70 /* projectApp.swift in Sources */,

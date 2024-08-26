@@ -32,10 +32,10 @@ class GameScene : ObservableObject {
         pointLights = []
         
         let newPlayer = Entity()
-        newPlayer.addCameraComponent(position: [-6.0, 6.0, 4.0], eulers: [0.0, 110.0, -45.0])
+        newPlayer.addCameraComponent(position: [0.0, 0.0, -4.0], eulers: [0.0, 0.0, 0.0])
         player = newPlayer
         
-        let newMouse = Billboard(position: [0.0, 0.0, 2.7])
+        let newMouse = Billboard(position: [0.0, 0.0, 1.0])
         mouse = newMouse
         
         let newSpotlight = Light(color: [1.0, 0.0, 0.0])
