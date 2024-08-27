@@ -35,7 +35,7 @@ class GameScene : ObservableObject {
         newPlayer.addCameraComponent(position: [0.0, 0.0, -4.0], eulers: [0.0, 0.0, 0.0])
         player = newPlayer
         
-        let newMouse = Billboard(position: [0.0, 2.0, 1.0])
+        let newMouse = Billboard(position: [0.0, 2.0, 0.0])
         mouse = newMouse
         
         let newSpotlight = Light(color: [1.0, 0.0, 0.0])
@@ -48,11 +48,11 @@ class GameScene : ObservableObject {
         sun.update()
         
         let newCube = Entity()
-        newCube.addTransformComponent(position: [0.0, 0.0, 1.0], eulers: [0.0, 0.0, 0.0])
+        newCube.addTransformComponent(position: [0.0, 0.0, 0.0], eulers: [0.0, 0.0, 0.0])
         cubes.append(newCube)
         
         let newTile = Entity()
-        newTile.addTransformComponent(position: [0.0, -1.0, 1.0], eulers: [0.0, 0.0, 0.0])
+        newTile.addTransformComponent(position: [0.0, -1.01, 0.0], eulers: [0.0, 0.0, 0.0])
         groundTiles.append(newTile)
         
         var newPointLight = Light(color: [0.0, 1.0, 1.0])
@@ -115,7 +115,7 @@ class GameScene : ObservableObject {
     
     func strafePlayer(offset: CGSize) {
         
-        let rightAmount: Float = Float(offset.width) / 1000
+        let rightAmount: Float = -Float(offset.width) / 1000
         
         let upAmount: Float = Float(offset.height) / 1000
         

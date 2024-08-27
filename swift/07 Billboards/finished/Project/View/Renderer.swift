@@ -53,13 +53,13 @@ class Renderer: NSObject, MTKViewDelegate {
         pipelineDescriptor.vertexFunction = library?.makeFunction(name: "vertexShader")
         pipelineDescriptor.fragmentFunction = library?.makeFunction(name: "fragmentShader")
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-        pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
-        pipelineDescriptor.colorAttachments[0].rgbBlendOperation = .add
-        pipelineDescriptor.colorAttachments[0].alphaBlendOperation = .add
-        pipelineDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
-        pipelineDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
-        pipelineDescriptor.colorAttachments[0].sourceRGBBlendFactor = .sourceAlpha
-        pipelineDescriptor.colorAttachments[0].sourceAlphaBlendFactor = .sourceAlpha
+//        pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
+//        pipelineDescriptor.colorAttachments[0].rgbBlendOperation = .add
+//        pipelineDescriptor.colorAttachments[0].alphaBlendOperation = .add
+//        pipelineDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
+//        pipelineDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
+//        pipelineDescriptor.colorAttachments[0].sourceRGBBlendFactor = .sourceAlpha
+//        pipelineDescriptor.colorAttachments[0].sourceAlphaBlendFactor = .sourceAlpha
         pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(cubeMesh.metalMesh.vertexDescriptor)
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
         

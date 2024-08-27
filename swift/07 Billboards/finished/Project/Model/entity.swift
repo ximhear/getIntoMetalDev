@@ -47,7 +47,7 @@ class Entity {
         
         let distance: Float = simd.length(position!)
         
-        moveForwards(amount: distance - 10.0)
+        moveForwards(amount: distance - 5.0)
     }
     
     func moveForwards(amount: Float) {
@@ -65,9 +65,12 @@ class Entity {
             
             forwards = simd.normalize([0,0,0] - position!)
             
-            let globalUp: vector_float3 = [0.0, 1.0, 0.0]
+            if up == nil {
+                let globalUp: vector_float3 = [0.0, 1.0, 0.0]
+                up = globalUp
+            }
             
-            right = simd.normalize(simd.cross(globalUp, forwards!))
+            right = simd.normalize(simd.cross(up!, forwards!))
             
             up = simd.normalize(simd.cross(forwards!, right!))
             
