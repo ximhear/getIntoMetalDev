@@ -35,7 +35,7 @@ class GameScene : ObservableObject {
         newPlayer.addCameraComponent(position: [0.0, 0.0, -4.0], eulers: [0.0, 0.0, 0.0])
         player = newPlayer
         
-        let newMouse = Billboard(position: [0.0, 0.0, 1.0])
+        let newMouse = Billboard(position: [0.0, 2.0, 1.0])
         mouse = newMouse
         
         let newSpotlight = Light(color: [1.0, 0.0, 0.0])
@@ -52,7 +52,7 @@ class GameScene : ObservableObject {
         cubes.append(newCube)
         
         let newTile = Entity()
-        newTile.addTransformComponent(position: [0.0, 0.0, 0.0], eulers: [90.0, 0.0, 0.0])
+        newTile.addTransformComponent(position: [0.0, -1.0, 1.0], eulers: [0.0, 0.0, 0.0])
         groundTiles.append(newTile)
         
         var newPointLight = Light(color: [0.0, 1.0, 1.0])

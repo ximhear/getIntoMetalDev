@@ -27,7 +27,8 @@ class Renderer: NSObject, MTKViewDelegate {
     let artyMaterial: Material
     let woodMaterial: Material
     let mouseMaterial: Material
-    
+        var projectionMatrix: matrix_float4x4 = matrix_identity_float4x4
+
     init(_ parent: ContentView, scene: GameScene) {
         
         self.parent = parent
@@ -79,7 +80,13 @@ class Renderer: NSObject, MTKViewDelegate {
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
+        let aspect = Float(size.width / size.height)
+        projectionMatrix = Matrix44.create_perspective_projection(
+            fovy: 65,
+            aspect: aspect,
+            near: 0.1,
+            far: 20
+        )
     }
     
     func draw(in view: MTKView) {
@@ -107,14 +114,14 @@ class Renderer: NSObject, MTKViewDelegate {
         sendLightData(renderEncoder: renderEncoder)
         
         armForDrawing(renderEncoder: renderEncoder, mesh: cubeMesh, material: artyMaterial)
-//        for cube in scene.cubes {
-//            draw(renderEncoder: renderEncoder, mesh: cubeMesh, modelTransform: &(cube.model!))
-//        }
+        for cube in scene.cubes {
+            draw(renderEncoder: renderEncoder, mesh: cubeMesh, modelTransform: &(cube.model!))
+        }
         
         armForDrawing(renderEncoder: renderEncoder, mesh: groundMesh, material: woodMaterial)
-//        for ground in scene.groundTiles {
-//            draw(renderEncoder: renderEncoder, mesh: groundMesh, modelTransform: &(ground.model!))
-//        }
+        for ground in scene.groundTiles {
+            draw(renderEncoder: renderEncoder, mesh: groundMesh, modelTransform: &(ground.model!))
+        }
         
         armForDrawing(renderEncoder: renderEncoder, mesh: mouseMesh, material: mouseMaterial)
         draw(renderEncoder: renderEncoder, mesh: mouseMesh, modelTransform: &(scene.mouse.model))
@@ -129,9 +136,7 @@ class Renderer: NSObject, MTKViewDelegate {
         
         var cameraData: CameraParameters = CameraParameters()
         cameraData.view = scene.player.view!
-        cameraData.projection = Matrix44.create_perspective_projection(
-            fovy: 45, aspect: 800/600, near: 0.1, far: 20
-        )
+        cameraData.projection = projectionMatrix
         renderEncoder?.setVertexBytes(&cameraData, length: MemoryLayout<CameraParameters>.stride, index: 2)
         
     }
