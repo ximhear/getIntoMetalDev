@@ -18,16 +18,16 @@ struct appView: View {
         VStack{
             
             Text("Billboards")
-        
+            GeometryReader { geometry in
             ContentView()
-                .frame(width: 800, height: 600)
+                .frame(width: geometry.size.width, height: geometry.size.height)
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
                             gameScene.strafePlayer(offset: gesture.translation)
                         }
                 )
-            
+            }
             Text("Debug Info")
             VStack{
                 Text("Camera")

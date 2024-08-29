@@ -59,6 +59,51 @@ class Light {
     }
     
     func update() {
+        
+        if type == DIRECTIONAL {
+            
+            // DIRECTIONAL light의 방향 벡터를 오일러 각도로부터 계산
+            let pitch = eulers![0] * .pi / 180.0
+            let yaw = eulers![1] * .pi / 180.0
+            
+            forwards = [
+                cos(pitch) * cos(yaw),
+                sin(pitch),
+                cos(pitch) * sin(yaw)
+            ]
+            
+        } else if type == SPOTLIGHT {
+            
+            // SPOTLIGHT에서 오일러 각도를 변경 (이것은 특정 애니메이션 효과를 위한 것으로 가정)
+            eulers![1] += eulerVelocity![1] // 변경된 부분: eulerVelocity에 기반한 회전
+            if (eulers![1] > 360) {
+                eulers![1] -= 360
+            }
+            
+            let pitch = eulers![0] * .pi / 180.0
+            let yaw = eulers![1] * .pi / 180.0
+            
+            forwards = [
+                cos(pitch) * cos(yaw),
+                sin(pitch),
+                cos(pitch) * sin(yaw)
+            ]
+            
+        } else if type == POINTLIGHT {
+            // POINTLIGHT에서의 궤도 계산
+            position![0] = rotationCenter![0] + pathRadius! * cos(pathPhi! * .pi / 180.0) * cos(t!)
+            position![1] = rotationCenter![1] + pathRadius! * sin(pathPhi! * .pi / 180.0)
+            position![2] = rotationCenter![2] + pathRadius! * cos(pathPhi! * .pi / 180.0) * sin(t!)
+
+            t! += angularVelocity! * 0.1;
+            if t! > (2.0 * .pi) {
+                t! -= 2.0 * .pi
+            }
+        }
+    }
+
+    
+    func update1() {
             
         if type == DIRECTIONAL {
                 

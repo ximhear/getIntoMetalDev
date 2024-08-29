@@ -34,8 +34,8 @@ class BrightBillboard {
     func update(viewerPosition: simd_float3) {
         
         position[0] = rotationCenter[0] + pathRadius * cos(t) * sin(pathPhi * .pi / 180.0)
-        position[1] = rotationCenter[1] + pathRadius * sin(t) * sin(pathPhi * .pi / 180.0)
-        position[2] = rotationCenter[2] + pathRadius * cos(pathPhi * .pi / 180.0)
+        position[1] = rotationCenter[1] + pathRadius * cos(pathPhi * .pi / 180.0)
+        position[2] = rotationCenter[2] + pathRadius * sin(t) * sin(pathPhi * .pi / 180.0)
         
         t += angularVelocity * 0.1;
         if t > (2.0 * .pi) {
@@ -43,10 +43,11 @@ class BrightBillboard {
         }
         
         let selfToViewer: simd_float3 = viewerPosition - position
-        let theta: Float = simd.atan2(selfToViewer[1], selfToViewer[0]) * 180.0 / .pi
-        let horizontalDistance: Float = sqrtf(selfToViewer[0] * selfToViewer[0] + selfToViewer[1] * selfToViewer[1])
-        let phi: Float = -simd.atan2(selfToViewer[2], horizontalDistance) * 180.0 / .pi
-        model = Matrix44.create_from_rotation(eulers: [0, phi, theta])
+        let theta: Float = simd.atan2(selfToViewer[0], selfToViewer[2]) * 180.0 / .pi
+        let horizontalDistance: Float = sqrtf(selfToViewer[2] * selfToViewer[2] + selfToViewer[0] * selfToViewer[0])
+        let phi: Float = -simd.atan2(selfToViewer[1], horizontalDistance) * 180.0 / .pi
+        model = Matrix44.create_from_rotation(eulers: [-90, 90, 0])
+        model = Matrix44.create_from_rotation(eulers: [phi, theta, 0]) * model
         model = Matrix44.create_from_translation(translation: position) * model
     }
     

@@ -46,7 +46,7 @@ enum lightType {
 };
 
 struct FragmentData {
-    uint lightCount;
+    unsigned int lightCount;
 };
 
 #endif /* definitions_h */
