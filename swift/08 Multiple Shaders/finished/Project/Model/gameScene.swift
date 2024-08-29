@@ -38,12 +38,12 @@ class GameScene : ObservableObject {
         let newMouse = Billboard(position: [0.0, 2.7, 0.0])
         mouse = newMouse
         
-        let newSpotlight = Light(color: [1.0, 0.0, 0.0])
-        newSpotlight.declareSpotlight(position: [-2, 0.0, 3.0], eulers: [0.0, 0.0, 180.0], eulerVelocity: [0.0, 0.0, 45.0])
+        let newSpotlight = Light(color: [0.0, 1.0, 0.0])
+        newSpotlight.declareSpotlight(position: [0, 0.0, -2.0], eulers: [0.0, 1.0, 0.0], eulerVelocity: [0.0, 1.0, 0.0])
         spotlight = newSpotlight;
         
-        let newSun = Light(color: [1.0, 1.0, 0.0])
-        newSun.declareDirectional(eulers: [0.0, 135.0, 45.0])
+        let newSun = Light(color: [0.0, 0.0, 0.0])
+        newSun.declareDirectional(forwards: [0.0, 0.0, 1.0])
         sun = newSun
         sun.update()
         
@@ -57,7 +57,7 @@ class GameScene : ObservableObject {
         
         var newPointLight = BrightBillboard(position: [0.0, 1.0, 0.0], color: [0.0, 1.0, 1.0], rotation_center: [0.0, 1.0, 0.0], pathRadius: 2.0, pathPhi: 90.0, angularVelocity: 1.0)
         pointLights.append(newPointLight)
-        newPointLight = BrightBillboard(position: [1.0, 1.0, 0.0], color: [0.0, 1.0, 0.0], rotation_center: [1.0, 1.0, 0.0], pathRadius: 3.0, pathPhi: 0.0, angularVelocity: 2.0)
+        newPointLight = BrightBillboard(position: [1.0, 1.0, 0.0], color: [0.9, 1.0, 0.4], rotation_center: [1.0, 1.0, 0.0], pathRadius: 3.0, pathPhi: 0.0, angularVelocity: 1.0)
         pointLights.append(newPointLight)
         
     }

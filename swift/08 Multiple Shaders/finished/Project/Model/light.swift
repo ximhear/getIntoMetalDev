@@ -29,12 +29,12 @@ class Light {
         
     }
     
-    func declareDirectional(eulers: simd_float3) {
+    func declareDirectional(forwards: simd_float3) {
         self.type = DIRECTIONAL
-        self.eulers = eulers
+        self.forwards = forwards
     }
     
-    func declareSpotlight(
+func declareSpotlight(
         position: simd_float3, eulers: simd_float3,
         eulerVelocity: vector_float3
     ) {
@@ -62,16 +62,7 @@ class Light {
         
         if type == DIRECTIONAL {
             
-            // DIRECTIONAL light의 방향 벡터를 오일러 각도로부터 계산
-            let pitch = eulers![0] * .pi / 180.0
-            let yaw = eulers![1] * .pi / 180.0
-            
-            forwards = [
-                cos(pitch) * cos(yaw),
-                sin(pitch),
-                cos(pitch) * sin(yaw)
-            ]
-            
+
         } else if type == SPOTLIGHT {
             
             // SPOTLIGHT에서 오일러 각도를 변경 (이것은 특정 애니메이션 효과를 위한 것으로 가정)

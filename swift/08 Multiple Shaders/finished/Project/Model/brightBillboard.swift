@@ -37,7 +37,7 @@ class BrightBillboard {
         position[1] = rotationCenter[1] + pathRadius * cos(pathPhi * .pi / 180.0)
         position[2] = rotationCenter[2] + pathRadius * sin(t) * sin(pathPhi * .pi / 180.0)
         
-        t += angularVelocity * 0.1;
+        t += angularVelocity * 0.01;
         if t > (2.0 * .pi) {
             t -= 2.0 * .pi
         }
