@@ -42,7 +42,7 @@ class GameScene : ObservableObject {
         newSpotlight.declareSpotlight(position: [0, 0.0, -2.0], eulers: [0.0, 1.0, 0.0], eulerVelocity: [0.0, 1.0, 0.0])
         spotlight = newSpotlight;
         
-        let newSun = Light(color: [0.0, 0.0, 0.0])
+        let newSun = Light(color: [0.7, 0.7, 0.7])
         newSun.declareDirectional(forwards: [0.0, 0.0, 1.0])
         sun = newSun
         sun.update()

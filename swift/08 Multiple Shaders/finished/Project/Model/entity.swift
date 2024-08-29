@@ -47,7 +47,7 @@ class Entity {
         
         let distance: Float = simd.length(position!)
         
-        moveForwards(amount: distance - 10.0)
+        moveForwards(amount: distance - 5.0)
     }
     
     func moveForwards(amount: Float) {
