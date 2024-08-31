@@ -17,9 +17,10 @@ struct appView: View {
             
             Text("Ray Tracing!")
         
-            ContentView()
-                .frame(width: 800, height: 600)
-            
+            GeometryReader { geometry in
+                ContentView()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+            }
         }
     }
 }

@@ -76,7 +76,12 @@ class Renderer: NSObject, MTKViewDelegate {
         let threadsPerGroup = MTLSizeMake(workGroupWidth, workGroupHeight, 1)
         let threadsPerGrid = MTLSizeMake(Int(view.drawableSize.width),
                                          Int(view.drawableSize.height), 1)
-        
+//        GZLogFunc(pipeline.maxTotalThreadsPerThreadgroup)
+//        GZLogFunc(workGroupWidth)
+//        GZLogFunc(workGroupHeight)
+//        GZLogFunc(threadsPerGrid)
+//        GZLogFunc()
+
         renderEncoder.dispatchThreads(threadsPerGrid, threadsPerThreadgroup: threadsPerGroup)
         
         

@@ -14,6 +14,8 @@
 		764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76527D0EC0D00812B70 /* Renderer.swift */; };
 		764AB76B27D0EC6500812B70 /* projectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76A27D0EC6500812B70 /* projectApp.swift */; };
 		76F68F5028A73D10002175B4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 76F68F4F28A73D10002175B4 /* Shaders.metal */; };
+		EC0B31032C8376B500240EC5 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B31022C8376B500240EC5 /* GZLog.swift */; };
+		EC0B31062C83885400240EC5 /* ray-sphere-hit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EC0B31052C83885400240EC5 /* ray-sphere-hit.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		764AB76527D0EC0D00812B70 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		764AB76A27D0EC6500812B70 /* projectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectApp.swift; sourceTree = "<group>"; };
 		76F68F4F28A73D10002175B4 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		EC0B31022C8376B500240EC5 /* GZLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
+		EC0B31052C83885400240EC5 /* ray-sphere-hit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ray-sphere-hit.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		764AB74627D0E92F00812B70 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				EC0B31042C83883D00240EC5 /* doc */,
+				EC0B31022C8376B500240EC5 /* GZLog.swift */,
 				764AB76127D0EC0D00812B70 /* View */,
 				764AB75927D0EBD800812B70 /* definitions.h */,
 				764AB74B27D0E93000812B70 /* Assets.xcassets */,
@@ -84,6 +90,14 @@
 				764AB76527D0EC0D00812B70 /* Renderer.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EC0B31042C83883D00240EC5 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				EC0B31052C83885400240EC5 /* ray-sphere-hit.pdf */,
+			);
+			path = doc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC0B31062C83885400240EC5 /* ray-sphere-hit.pdf in Resources */,
 				764AB74F27D0E93000812B70 /* Preview Assets.xcassets in Resources */,
 				764AB74C27D0E93000812B70 /* Assets.xcassets in Resources */,
 			);
@@ -157,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				764AB76B27D0EC6500812B70 /* projectApp.swift in Sources */,
+				EC0B31032C8376B500240EC5 /* GZLog.swift in Sources */,
 				764AB76727D0EC0D00812B70 /* ContentView.swift in Sources */,
 				764AB76627D0EC0D00812B70 /* appView.swift in Sources */,
 				764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */,
@@ -291,9 +307,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "G-RayTracing1";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,7 +321,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageOneFinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.RaytracingStageOneFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
@@ -321,9 +338,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "G-RayTracing1";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -334,7 +352,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageOneFinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.RaytracingStageOneFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
