@@ -15,17 +15,18 @@ Shader_RenderState hit(Shader_Ray ray, Shader_Sphere sphere, float tMin, float t
 float3 rayColor(Shader_Ray ray, float sphereCount, const device Shader_Sphere* spheres);
 
 kernel void ray_tracing_kernel(texture2d<float, access::write> color_buffer [[texture(0)]],
-    const device Shader_Sphere *spheres [[buffer(0)]],
-    constant Shader_SceneData &sceneData [[buffer(1)]],
-    uint2 grid_index [[thread_position_in_grid]]) {
+                               const device Shader_Sphere *spheres [[buffer(0)]],
+                               constant Shader_SceneData &sceneData [[buffer(1)]],
+                               uint2 grid_index [[thread_position_in_grid]]) {
     // Bytes (less than ~4kb): constant Shader_Sphere *spheres [[buffer(0)]]
     // Buffer (bigger): const device Shader_Sphere *spheres [[buffer(0)]]
     
     int width = color_buffer.get_width();
     int height = color_buffer.get_height();
     
-    float horizontal_coefficient = (float(grid_index[0]) - width / 2) / width;
-    float vertical_coefficient = (float(grid_index[1]) - height / 2) / width;
+    int standard_factor = min(width, height);
+    float horizontal_coefficient = (float(grid_index[0]) - width / 2) / standard_factor;
+    float vertical_coefficient = (float(grid_index[1]) - height / 2) / standard_factor;
     float3 forwards = sceneData.camera_forwards;
     float3 right = sceneData.camera_right;
     float3 up = sceneData.camera_up;
@@ -35,7 +36,7 @@ kernel void ray_tracing_kernel(texture2d<float, access::write> color_buffer [[te
     myRay.direction = normalize(forwards + horizontal_coefficient * right + vertical_coefficient * up);
     
     float3 color = rayColor(myRay, sceneData.sphereCount, spheres);
-  
+    
     color_buffer.write(float4(color, 1.0), grid_index);
 }
 
@@ -68,7 +69,7 @@ Shader_RenderState hit(Shader_Ray ray, Shader_Sphere sphere, float tMin, float t
     float b = 2.0 * dot(ray.direction, co);
     float c = dot(co, co) - sphere.radius * sphere.radius;
     float discriminant = b * b - 4.0 * a * c;
-
+    
     if (discriminant > 0) {
         
         float t = (-b - sqrt(discriminant)) / (2.0 * a);

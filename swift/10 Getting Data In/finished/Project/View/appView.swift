@@ -17,12 +17,15 @@ struct appView: View {
     var body: some View {
         VStack{
             
-            Text("Ray Tracing!")
+            Text("Ray Tracing 2!")
         
-            ContentView()
-                .frame(width: 800, height: 600)
-            
+            GeometryReader { geometry in
+                ContentView()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+            }
         }
+        // leading, trailing, bottom을 ignore safe area로 설정
+        .edgesIgnoringSafeArea([.leading, .trailing, .bottom])
     }
 }
 

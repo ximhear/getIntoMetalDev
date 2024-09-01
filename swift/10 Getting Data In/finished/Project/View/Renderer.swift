@@ -51,14 +51,13 @@ class Renderer: NSObject, MTKViewDelegate {
         let sphereCount: Int = gamescene.spheres.count
         
         let memory_size = sphereCount * MemoryLayout<Shader_Sphere>.stride
-        let page_size = 0x1000
+        let page_size = 0x1000 // 4096 bytes
+        
         let allocation_size = (memory_size + page_size - 1) & (~(page_size - 1))
         
         var spheres: [Shader_Sphere] = []
         for sphere in gamescene.spheres {
-            
             spheres.append(Shader_Sphere(center: sphere.center, radius: sphere.radius, color: sphere.color))
-            
         }
         
         posix_memalign(&memory, page_size, allocation_size)

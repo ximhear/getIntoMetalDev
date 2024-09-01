@@ -17,6 +17,7 @@
 		764AB76927D0EC0D00812B70 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76527D0EC0D00812B70 /* Renderer.swift */; };
 		764AB76B27D0EC6500812B70 /* projectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AB76A27D0EC6500812B70 /* projectApp.swift */; };
 		76F68F5028A73D10002175B4 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 76F68F4F28A73D10002175B4 /* Shaders.metal */; };
+		EC2CD1282C849E3300B303B6 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2CD1272C849E3300B303B6 /* GZLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		764AB76527D0EC0D00812B70 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		764AB76A27D0EC6500812B70 /* projectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectApp.swift; sourceTree = "<group>"; };
 		76F68F4F28A73D10002175B4 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		EC2CD1272C849E3300B303B6 /* GZLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		764AB74627D0E92F00812B70 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				EC2CD1272C849E3300B303B6 /* GZLog.swift */,
 				76010A6128C2D5FA00843067 /* Model */,
 				764AB76127D0EC0D00812B70 /* View */,
 				764AB75927D0EBD800812B70 /* definitions.h */,
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76010A6328C2D61C00843067 /* GameScene.swift in Sources */,
+				EC2CD1282C849E3300B303B6 /* GZLog.swift in Sources */,
 				764AB76B27D0EC6500812B70 /* projectApp.swift in Sources */,
 				764AB76727D0EC0D00812B70 /* ContentView.swift in Sources */,
 				764AB76627D0EC0D00812B70 /* appView.swift in Sources */,
@@ -311,9 +315,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "G-RayTracing2";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -324,7 +329,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageTwoFinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.RaytracingStageTwoFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
@@ -341,9 +346,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "G-RayTracing2";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -354,7 +360,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.RaytracingStageTwoFinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.RaytracingStageTwoFinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Project/definitions.h;
