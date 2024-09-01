@@ -45,8 +45,10 @@ kernel void ray_tracing_kernel(texture2d<float, access::write> color_buffer [[te
     int width = color_buffer.get_width();
     int height = color_buffer.get_height();
     
-    float horizontal_coefficient = (float(grid_index[0]) - width / 2) / width;
-    float vertical_coefficient = (float(grid_index[1]) - height / 2) / width;
+    int standard_factor = min(width, height);
+    
+    float horizontal_coefficient = (float(grid_index[0]) - width / 2) / standard_factor;
+    float vertical_coefficient = (float(grid_index[1]) - height / 2) / standard_factor;
     float3 forwards = sceneData.camera_forwards;
     float3 right = sceneData.camera_right;
     float3 up = sceneData.camera_up;
@@ -68,31 +70,36 @@ float3 rayColor(float2 xy, Shader_Ray ray, constant Shader_SceneData &sceneData,
     //Initial trace
     Shader_RenderState result = trace(ray, sceneData.sphereCount, spheres);
     color = color * result.color;
-    
-    for (int i = 0; i < sceneData.maxBounces; ++i) {
-        
-        //Early exit
-        if (!result.hit) {
-            break;
-        }
-        
-        //Bounces
-        float3 origin = result.position;
-        float3 matteDirection = result.normal + randomVec(xy, i);
-        float3 reflectedDirection = reflect(ray.direction, result.normal);
-        float reflectance = result.reflectance;
-        //Use reflectance of surface to blend between matte and reflect
-        ray.origin = origin;
-        ray.direction = matteDirection;// + result.reflectance * reflectedDirection;
-        result = trace(ray, sceneData.sphereCount, spheres);
-        tempColor = (1.0 - reflectance) * result.color;
-        ray.direction = reflectedDirection;
-        result = trace(ray, sceneData.sphereCount, spheres);
-        tempColor = tempColor + reflectance * result.color;
-        color = color * tempColor;
+    if (result.hit < 0.1) {
+        return float3(0);
     }
     
-    return color;
+   for (int i = 0; i < sceneData.maxBounces; ++i) {
+      
+      //Early exit
+      if (!result.hit) {
+         break;
+      }
+      
+      //Bounces
+      float3 origin = result.position;
+      float3 matteDirection = result.normal + randomVec(xy, i);
+      float3 reflectedDirection = reflect(ray.direction, result.normal);
+      float reflectance = result.reflectance;
+      //Use reflectance of surface to blend between matte and reflect
+      ray.origin = origin;
+      ray.direction = matteDirection;// + result.reflectance * reflectedDirection;
+      result = trace(ray, sceneData.sphereCount, spheres);
+      tempColor = (1.0 - reflectance) * result.color;
+      ray.direction = reflectedDirection;
+      result = trace(ray, sceneData.sphereCount, spheres);
+      tempColor = tempColor + reflectance * result.color;
+      color = color * tempColor;
+//      if (result.hit > 0.1) {
+//         color = tempColor;
+//      }
+   }
+   return color;
 }
 
 Shader_RenderState trace(Shader_Ray ray, float sphereCount, const device Shader_Sphere* spheres) {

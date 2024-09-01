@@ -17,22 +17,32 @@ class GameScene: ObservableObject {
     
     init() {
         
-        camera = Camera(position: [-20.0, 0.0, 0.0])
+        camera = Camera(position: [-12.0, 0.0, 0.0])
         
         spheres = []
-        for _ in 1...32 {
+        for index in 0..<32 {
             let tempSphere = Sphere(
                 center: [
+//                    index % 3 == 0 ? 1 : 0.0,
+//                    index % 3 == 1 ? 2 : 0.0,
+//                    index % 3 == 2 ? 2 : 0.0
                     Float.random(in: 3.0...10.0),
                     Float.random(in: -5.0...5.0),
                     Float.random(in: -5.0...5.0)
                 ],
+//                radius: 1,
                 radius: Float.random(in: 0.1...2.0),
+//                color: [
+//                    index % 3 == 0 ? 1.0 : 0.0,
+//                    index % 3 == 1 ? 1.0 : 0.0,
+//                    index % 3 == 2 ? 1.0 : 0.0
+//                ],
                 color: [
-                    Float.random(in: 0.3...1.0),
-                    Float.random(in: 0.3...1.0),
-                    Float.random(in: 0.3...1.0)
+                    Float.random(in: 0.1...1.0),
+                    Float.random(in: 0.1...1.0),
+                    Float.random(in: 0.1...1.0)
                 ],
+//                reflectance: 1.0
                 reflectance: Float.random(in: 0.0...1.0)
             )
             spheres.append(tempSphere)
