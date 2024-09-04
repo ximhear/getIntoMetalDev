@@ -11,24 +11,22 @@ import SwiftUI
  game scene will be automatically forwarded here...
  */
 struct appView: View {
-    
     @EnvironmentObject var gameScene: GameScene
-    
+
     var body: some View {
-        VStack{
-            
+        VStack {
             Text("Billboards")
-        
+
             ContentView()
 
                 .frame(width: 800, height: 600)
-            
+
             Text("Debug Info")
-            VStack{
+            VStack {
                 Text("Camera")
-                HStack{
+                HStack {
                     Text("Position")
-                    VStack{
+                    VStack {
                         Text(String(gameScene.player.position![0]))
                         Text(String(gameScene.player.position![1]))
                         Text(String(gameScene.player.position![2]))
@@ -36,19 +34,18 @@ struct appView: View {
                     Text("Current Key: ")
                     Text(gameScene.currentKey)
                     Text("Mouse Delta: ")
-                    VStack{
+                    VStack {
                         Text(String(gameScene.mouseDelta.x))
                         Text(String(gameScene.mouseDelta.y))
                     }
                     Text("Eulers: ")
-                    VStack{
+                    VStack {
                         Text(String(gameScene.player.eulers![0]))
                         Text(String(gameScene.player.eulers![1]))
                         Text(String(gameScene.player.eulers![2]))
                     }
                 }
             }
-            
         }
     }
 }

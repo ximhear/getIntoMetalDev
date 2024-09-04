@@ -38,6 +38,7 @@
 		76F16EF8287122A800041664 /* ground.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 76F16EF7287122A800041664 /* ground.mtl */; };
 		76F16EFA287122B400041664 /* ground.obj in Resources */ = {isa = PBXBuildFile; fileRef = 76F16EF9287122B400041664 /* ground.obj */; };
 		76F16F0028714F3300041664 /* light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F16EFF28714F3300041664 /* light.swift */; };
+		EC3B7B312C88AF7D00B74184 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B7B302C88AF7D00B74184 /* GZLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		76F16EF7287122A800041664 /* ground.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.mtl; sourceTree = "<group>"; };
 		76F16EF9287122B400041664 /* ground.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.obj; sourceTree = "<group>"; };
 		76F16EFF28714F3300041664 /* light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = light.swift; sourceTree = "<group>"; };
+		EC3B7B302C88AF7D00B74184 /* GZLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		764AB74627D0E92F00812B70 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				EC3B7B302C88AF7D00B74184 /* GZLog.swift */,
 				76177DA0286FCE4F00470632 /* textures */,
 				764AB76C27D0ED7100812B70 /* models */,
 				764AB75A27D0EC0200812B70 /* Model */,
@@ -189,6 +192,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 764AB75227D0E93000812B70 /* Build configuration list for PBXNativeTarget "Project" */;
 			buildPhases = (
+				EC3B7B2F2C88AEB700B74184 /* swift format */,
 				764AB74027D0E92F00812B70 /* Sources */,
 				764AB74127D0E92F00812B70 /* Frameworks */,
 				764AB74227D0E92F00812B70 /* Resources */,
@@ -259,12 +263,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EC3B7B2F2C88AEB700B74184 /* swift format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "swift format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed. Install using 'brew install swiftformat'\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		764AB74027D0E92F00812B70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				760550B5289BD4B3006D804E /* brightBillboard.swift in Sources */,
+				EC3B7B312C88AF7D00B74184 /* GZLog.swift in Sources */,
 				7693A3D428633C91001FE7F7 /* material.swift in Sources */,
 				76115EA4289257EA00633C17 /* billboard.swift in Sources */,
 				760550B7289BD871006D804E /* unlitShaders.metal in Sources */,
