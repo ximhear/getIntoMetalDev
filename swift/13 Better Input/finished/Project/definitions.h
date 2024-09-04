@@ -47,7 +47,7 @@ enum lightType {
 };
 
 struct FragmentData {
-    uint lightCount;
+    unsigned int lightCount;
 };
 
 enum meshTypes {
