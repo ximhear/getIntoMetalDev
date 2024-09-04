@@ -24,6 +24,11 @@ class vertexMenagerie {
     }
     
     func finalize(device: MTLDevice) {
+//        vertexCounts.keys.forEach { key in
+//            GZLogFunc(vertexCounts[key]!)
+//        }
+//        GZLogFunc(data.first!)
+//        GZLogFunc()
         vertexBuffer = device.makeBuffer(bytes: data, length: data.count * MemoryLayout<Vertex>.stride)
     }
 }

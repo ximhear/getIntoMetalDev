@@ -109,9 +109,21 @@ class ObjMesh {
         
         let vertex_description: [String] = description.components(separatedBy: "/")
         var vertex: Vertex = Vertex()
-        vertex.position = simd_float4(vertices[Int(vertex_description[0])! - 1], 1.0)
-        vertex.uv = texcoords[Int(vertex_description[1])! - 1]
-        vertex.normal = normals[Int(vertex_description[2])! - 1]
+        GZLogFunc(MemoryLayout<Vertex>.stride)
+        GZLogFunc(MemoryLayout<Vertex>.size)
+        GZLogFunc()
+        vertex.position.0 = vertices[Int(vertex_description[0])! - 1].x
+        vertex.position.1 = vertices[Int(vertex_description[0])! - 1].y
+        vertex.position.2 = vertices[Int(vertex_description[0])! - 1].z
+        vertex.position.3 = 1
+//        vertex.position = simd_float4(vertices[Int(vertex_description[0])! - 1], 1.0)
+        vertex.uv.0 = texcoords[Int(vertex_description[1])! - 1].x
+        vertex.uv.1 = texcoords[Int(vertex_description[1])! - 1].y
+//        vertex.uv = texcoords[Int(vertex_description[1])! - 1]
+//        vertex.normal = normals[Int(vertex_description[2])! - 1]
+        vertex.normal.0 = normals[Int(vertex_description[2])! - 1].x
+        vertex.normal.1 = normals[Int(vertex_description[2])! - 1].y
+        vertex.normal.2 = normals[Int(vertex_description[2])! - 1].z
         buffer.append(vertex)
 
     }

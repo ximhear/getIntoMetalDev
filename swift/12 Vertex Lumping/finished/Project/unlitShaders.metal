@@ -17,20 +17,26 @@ struct VertexUnlit {
 };
 */
 
+struct VertexIn {
+    float4 position [[ attribute(0) ]];
+    float2 uv [[ attribute(1) ]];
+    float3 normal [[ attribute(2) ]];
+};
+
 struct FragmentUnlit {
     float4 position [[position]];
     float2 texCoord;
 };
 
 vertex FragmentUnlit vertexShaderUnlit (
-        const device Vertex *vertices [[ buffer(0) ]],
+        const device VertexIn *vertices [[ buffer(0) ]],
         constant matrix_float4x4 &model [[ buffer(1) ]],
         constant CameraParameters &camera [[ buffer(2) ]],
         unsigned int vid [[vertex_id]])
 {
     
     FragmentUnlit output;
-    Vertex vertex_in = vertices[vid];
+    VertexIn vertex_in = vertices[vid];
     output.position = camera.projection * camera.view * model * vertex_in.position;
     output.texCoord = vertex_in.uv;
     

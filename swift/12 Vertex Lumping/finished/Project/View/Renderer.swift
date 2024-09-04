@@ -65,17 +65,21 @@ class Renderer: NSObject, MTKViewDelegate {
         vertexDescriptor.attributes[0].offset = offset
         vertexDescriptor.attributes[0].bufferIndex = 0
         offset += MemoryLayout<SIMD4<Float>>.stride
+        GZLogFunc(offset)
         //texCoord
         vertexDescriptor.attributes[1].format = .float2
         vertexDescriptor.attributes[1].offset = offset
         vertexDescriptor.attributes[1].bufferIndex = 0
         offset += MemoryLayout<SIMD2<Float>>.stride
+        GZLogFunc(offset)
         //normal
         vertexDescriptor.attributes[2].format = .float3
         vertexDescriptor.attributes[2].offset = offset
         vertexDescriptor.attributes[2].bufferIndex = 0
-        offset += MemoryLayout<SIMD3<Float>>.stride
-        
+        offset += 12//MemoryLayout<SIMD3<Float>>.stride
+        GZLogFunc(offset)
+
+        GZLogFunc()
         vertexDescriptor.layouts[0].stride = offset
         litPipeline = PipelineBuilder.BuildPipeline(metalDevice: metalDevice, library: library, vsEntry: "vertexShader", fsEntry: "fragmentShader", vertexDescriptor: vertexDescriptor)
         unlitPipeline = PipelineBuilder.BuildPipeline(metalDevice: metalDevice, library: library, vsEntry: "vertexShaderUnlit", fsEntry: "fragmentShaderUnlit", vertexDescriptor: vertexDescriptor)

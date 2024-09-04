@@ -12,9 +12,12 @@
 
 
 struct Vertex {
-    vector_float4 position;
-    vector_float2 uv;
-    vector_float3 normal;
+    float position[4];
+    float uv[2];
+    float normal[3];
+//    vector_float4 position;
+//    vector_float2 uv;
+//    vector_float3 normal;
 };
 
 struct CameraParameters {
@@ -47,7 +50,7 @@ enum lightType {
 };
 
 struct FragmentData {
-    uint lightCount;
+    unsigned int lightCount;
 };
 
 enum meshTypes {

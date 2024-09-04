@@ -14,13 +14,11 @@ float3 applyDirectionalLight(float3 normal, DirectionalLight light, float3 baseC
 float3 applySpotLight(float3 position, float3 normal, Spotlight light, float3 baseColor, float3 fragCam);
 float3 applyPointLight(float3 position, float3 normal, Pointlight light, float3 baseColor, float3 fragCam);
 
-/*
 struct VertexIn {
     float4 position [[ attribute(0) ]];
-    float2 texCoord [[ attribute(1) ]];
+    float2 uv [[ attribute(1) ]];
     float3 normal [[ attribute(2) ]];
 };
-*/
 
 struct Fragment {
     float4 position [[position]];
@@ -31,8 +29,9 @@ struct Fragment {
 };
 
 vertex Fragment vertexShader(
-        const device Vertex *vertices [[ buffer(0) ]],
-        unsigned int vid [[vertex_id]],
+        VertexIn vertex_in [[ stage_in ]],
+//        const device Vertex *vertices [[ buffer(0) ]],
+//        unsigned int vid [[vertex_id]],
         constant matrix_float4x4 &model [[ buffer(1) ]],
         constant CameraParameters &camera [[ buffer(2) ]])
 {
@@ -49,7 +48,7 @@ vertex Fragment vertexShader(
     diminished_model[2][2] = model[2][2];
     
     Fragment output;
-    Vertex vertex_in = vertices[vid];
+//    Vertex vertex_in = vertices[vid];
     output.position = camera.projection * camera.view * model * vertex_in.position;
     output.texCoord = vertex_in.uv;
     output.normal = diminished_model * vertex_in.normal;
