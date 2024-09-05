@@ -113,7 +113,7 @@ class Renderer: NSObject, MTKViewDelegate {
         
         
         customRenderPass = RenderPass(device: metalDevice,
-                                      width: 640, height: 480)
+                                      width: 800, height: 600)
         screenQuad = ScreenQuad(device: metalDevice)
         
         self.scene = scene
@@ -138,7 +138,12 @@ class Renderer: NSObject, MTKViewDelegate {
         
         let renderEncoder = commandBuffer?.makeRenderCommandEncoder(
             descriptor: customRenderPass.renderpassDescriptor)
-        
+        GZLogFunc(customRenderPass.renderpassDescriptor.colorAttachments[0].texture?.usage.rawValue)
+        GZLogFunc(customRenderPass.renderpassDescriptor.depthAttachment.texture?.usage.rawValue)
+        GZLogFunc(customRenderPass.renderpassDescriptor.colorAttachments[0].texture?.storageMode.rawValue)
+        GZLogFunc(customRenderPass.renderpassDescriptor.depthAttachment.texture?.storageMode.rawValue)
+        GZLogFunc()
+
         drawLitObjects(renderEncoder: renderEncoder)
         
         drawUnlitObjects(renderEncoder: renderEncoder)
@@ -149,6 +154,16 @@ class Renderer: NSObject, MTKViewDelegate {
         renderPassDescriptor?.colorAttachments[0].clearColor = MTLClearColorMake(0, 0.5, 0.5, 1.0)
         renderPassDescriptor?.colorAttachments[0].loadAction = .clear
         renderPassDescriptor?.colorAttachments[0].storeAction = .store
+        GZLogFunc(renderPassDescriptor?.colorAttachments[0].texture?.usage.rawValue)
+        GZLogFunc(renderPassDescriptor?.depthAttachment.texture?.usage.rawValue)
+        GZLogFunc(renderPassDescriptor?.colorAttachments[0].texture?.storageMode.rawValue)
+        GZLogFunc(renderPassDescriptor?.depthAttachment.texture?.storageMode.rawValue)
+        GZLogFunc(MTLTextureUsage.unknown.rawValue)
+        GZLogFunc(MTLTextureUsage.shaderRead.rawValue)
+        GZLogFunc(MTLTextureUsage.shaderWrite.rawValue)
+        GZLogFunc(MTLTextureUsage.renderTarget.rawValue)
+        GZLogFunc(MTLTextureUsage.pixelFormatView.rawValue)
+        GZLogFunc()
         
         let postRenderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor!)
         

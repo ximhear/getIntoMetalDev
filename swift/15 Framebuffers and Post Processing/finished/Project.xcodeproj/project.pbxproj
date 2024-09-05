@@ -42,6 +42,7 @@
 		76F16EF8287122A800041664 /* ground.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 76F16EF7287122A800041664 /* ground.mtl */; };
 		76F16EFA287122B400041664 /* ground.obj in Resources */ = {isa = PBXBuildFile; fileRef = 76F16EF9287122B400041664 /* ground.obj */; };
 		76F16F0028714F3300041664 /* light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F16EFF28714F3300041664 /* light.swift */; };
+		EC73433C2C8A0D67007BF490 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC73433B2C8A0D67007BF490 /* GZLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		76F16EF7287122A800041664 /* ground.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.mtl; sourceTree = "<group>"; };
 		76F16EF9287122B400041664 /* ground.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.obj; sourceTree = "<group>"; };
 		76F16EFF28714F3300041664 /* light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = light.swift; sourceTree = "<group>"; };
+		EC73433B2C8A0D67007BF490 /* GZLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		764AB74627D0E92F00812B70 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				EC73433B2C8A0D67007BF490 /* GZLog.swift */,
 				76177DA0286FCE4F00470632 /* textures */,
 				764AB76C27D0ED7100812B70 /* models */,
 				764AB75A27D0EC0200812B70 /* Model */,
@@ -201,6 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 764AB75227D0E93000812B70 /* Build configuration list for PBXNativeTarget "Project" */;
 			buildPhases = (
+				ECC856DE2C8A05AD00565D69 /* swift format */,
 				764AB74027D0E92F00812B70 /* Sources */,
 				764AB74127D0E92F00812B70 /* Frameworks */,
 				764AB74227D0E92F00812B70 /* Resources */,
@@ -271,6 +275,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ECC856DE2C8A05AD00565D69 /* swift format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "swift format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed. Install using 'brew install swiftformat'\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		764AB74027D0E92F00812B70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -291,6 +316,7 @@
 				764AB75F27D0EC0200812B70 /* entity.swift in Sources */,
 				765354B1298A8E5200109837 /* controller.swift in Sources */,
 				767C446529E8C11F0000E155 /* postShaders.metal in Sources */,
+				EC73433C2C8A0D67007BF490 /* GZLog.swift in Sources */,
 				762BC9E328F5169E00FA56B0 /* vertexMenagerie.swift in Sources */,
 				764AB76627D0EC0D00812B70 /* appView.swift in Sources */,
 				764AB75E27D0EC0200812B70 /* gameScene.swift in Sources */,
@@ -427,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -440,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.PostProcessingfinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.PostProcessingfinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -460,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Project/Preview Content\"";
-				DEVELOPMENT_TEAM = T5C5DQ8HP4;
+				DEVELOPMENT_TEAM = WD3LPJ2STX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -473,7 +499,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.amengede.PostProcessingfinished;
+				PRODUCT_BUNDLE_IDENTIFIER = g.amengede.PostProcessingfinished;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

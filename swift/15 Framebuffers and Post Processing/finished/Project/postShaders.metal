@@ -24,7 +24,9 @@ vertex FragmentPost vertexShaderPost (
     output.position = float4(vertex_in.position, 0, 1);
     output.texCoord = 0.5 * (float2(1.0) + vertex_in.position);
     output.texCoord.y *= -1;
-    
+//    output.texCoord.x = 0.5 * (1.0 + vertex_in.position.x);
+//    output.texCoord.y = 1 - 0.5 * (1.0 + vertex_in.position.y);
+
     return output;
 }
 
