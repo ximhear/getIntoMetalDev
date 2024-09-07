@@ -36,5 +36,6 @@ fragment float4 fragmentShaderPost (
     float3 baseColor = float3(screenTexture.sample(screenSampler, input.texCoord));
     float average = (baseColor.r + baseColor.g + baseColor.b) / 3;
     
-    return float4(float3(average), 1.0);
+    return float4(baseColor, 1.0);
+//    return float4(float3(average), 1.0);
 }

@@ -1,5 +1,5 @@
 //
-//  PipelineBuilder.swift
+//  pipelineBuilder.swift
 //  Project
 //
 //  Created by Andrew Mengede on 4/8/2022.
@@ -9,9 +9,7 @@ import Foundation
 import MetalKit
 
 class PipelineBuilder {
-    
     static func BuildPipeline(metalDevice: MTLDevice, library: MTLLibrary, vsEntry: String, fsEntry: String, vertexDescriptor: MTLVertexDescriptor) -> MTLRenderPipelineState {
-        
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = library.makeFunction(name: vsEntry)
         pipelineDescriptor.fragmentFunction = library.makeFunction(name: fsEntry)
@@ -26,7 +24,7 @@ class PipelineBuilder {
         pipelineDescriptor.vertexDescriptor = vertexDescriptor
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
         pipelineDescriptor.sampleCount = 1
-        
+
         do {
             return try metalDevice.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch {
